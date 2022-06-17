@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "sabatate-mod",
+  "id": "sabatatemod",
   "version": "0.1.0",
-  "name": "sabatate-mod",
+  "name": "sabatatemod",
   "description": "さばたてサーバーのMod",
   "authors": [
     "ORITO Itsuki"
@@ -13,7 +13,7 @@
     "sources": "https://example.com/"
   },
   "license": "MIT",
-  "icon": "assets/sabatate-mod/icon.png",
+  "icon": "assets/sabatatemod/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -24,13 +24,13 @@
     ]
   },
   "mixins": [
-    "sabatate-mod.mixins.json"
+    "sabatatemod.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
     "fabric-language-kotlin": ">=1.7.4+kotlin.1.6.21",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=17"
   }
 }
