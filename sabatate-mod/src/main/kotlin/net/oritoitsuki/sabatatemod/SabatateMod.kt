@@ -1,8 +1,8 @@
-package com.mod_author.mod_id
+package net.oritoitsuki.sabatatemod
 import net.fabricmc.api.ModInitializer
 @Suppress("UNUSED")
-object ModName: ModInitializer {
-    private const val MOD_ID = "mod_id"
+object SabatateMod: ModInitializer {
+    private const val MOD_ID = "sabatate-mod"
     override fun onInitialize() {
         println("Example mod has been initialized.")
     }
