@@ -1,5 +1,10 @@
 {
   "itemGroup.sabatatemod.item": "さばたてModのアイテム",
   "item.sabatatemod.sabatate_token": "さばたてトークン",
-  "item.sabatatemod.sabatate_token.tooltip": "†さばたてトークン†"
+  "item.sabatatemod.sabatate_token.tooltip": "†さばたてトークン†",
+  "item.sabatatemod.sabatate_manju": "さばたて饅頭",
+  "item.sabatatemod.sabatate_manju.tooltip-1": "※とても美味しい",
+  "item.sabatatemod.sabatate_manju.tooltip-2": "※爆発しない/お腹を壊さない",
+  "item.sabatatemod.sabatate_manju.tooltip-3": "※とても美味しい",
+  "death.attack.sabatate_manju": "%1$s は腹痛で死んでしまった"
 }
