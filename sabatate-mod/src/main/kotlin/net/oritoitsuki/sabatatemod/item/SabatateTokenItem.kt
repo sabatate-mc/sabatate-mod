@@ -11,11 +11,20 @@ import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
 import net.oritoitsuki.sabatatemod.SabatateMod
+import kotlin.random.Random
 
-object SabatateTokenItem : Item(FabricItemSettings().group(SabatateMod.ITEM_GROUP).maxCount(16)) {
+object SabatateTokenItem : Item(
+    FabricItemSettings()
+        .group(SabatateMod.ITEM_GROUP)
+        .maxCount(64)
+) {
     @Override
     override fun use(world: World?, user: PlayerEntity?, hand: Hand?): TypedActionResult<ItemStack> {
-        user?.playSound(SoundEvents.BLOCK_WOOL_BREAK, 1.0F, 15.0F)
+        if (Random.nextFloat() < 0.95) {
+            user?.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, 1F, Random.nextFloat() * 50F)
+        } else {
+            user?.playSound(SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER, 1F, 15F)
+        }
         return TypedActionResult.success(user?.getStackInHand(hand))
     }
 
