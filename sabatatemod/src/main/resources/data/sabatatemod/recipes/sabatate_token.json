@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "sabatatemod:sabatate_token_block"
+    }
+  ],
+  "result": {
+    "item": "sabatatemod:sabatate_token",
+    "count": 9
+  }
+}

@@ -4,22 +4,28 @@ import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.item.ItemStack
 import net.minecraft.recipe.Recipe
 import net.minecraft.util.Identifier
-import net.oritoitsuki.sabatatemod.SabatateMod
+import net.oritoitsuki.sabatatemod.item.ModItems
 
 object ItemEntityMixinImpl {
     private var sabatateManjuRecipe: Recipe<*>? = null
+    private var sabatateBlockRecipe: Recipe<*>? = null
 
     fun onPlayerCollision(playerInventory: PlayerInventory, stack: ItemStack): Boolean {
-        if (stack.item != SabatateMod.SABATATE_TOKEN_ITEM) return playerInventory.insertStack(stack)
+        val player = playerInventory.player
+        val recipeManager = player.world.recipeManager
 
-        if (sabatateManjuRecipe == null) {
-            val recipe = playerInventory.player.world.recipeManager.get(Identifier("sabatatemod", "sabatate_manju"))
-            if (recipe.isEmpty) return playerInventory.insertStack(stack)
-            sabatateManjuRecipe = recipe.get()
-        }
+        if (stack.item == ModItems.SABATATE_TOKEN_ITEM) {
+            if (sabatateManjuRecipe == null) {
+                sabatateManjuRecipe = recipeManager
+                    .get(Identifier("sabatatemod", "sabatate_manju")).get()
+            }
 
-        sabatateManjuRecipe?.let {
-            playerInventory.player.unlockRecipes(arrayListOf(it))
+            if (sabatateBlockRecipe == null) {
+                sabatateBlockRecipe = recipeManager
+                    .get(Identifier("sabatatemod", "sabatate_token_block")).get()
+            }
+
+            player.unlockRecipes(arrayListOf(sabatateManjuRecipe, sabatateBlockRecipe))
         }
 
         return playerInventory.insertStack(stack)
