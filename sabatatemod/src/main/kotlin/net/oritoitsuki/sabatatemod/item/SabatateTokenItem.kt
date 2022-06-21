@@ -10,12 +10,11 @@ import net.minecraft.text.Text
 import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
-import net.oritoitsuki.sabatatemod.SabatateMod
 import kotlin.random.Random
 
 object SabatateTokenItem : Item(
     FabricItemSettings()
-        .group(SabatateMod.ITEM_GROUP)
+        .group(ModItemGroup.ITEM_GROUP)
         .maxCount(64)
 ) {
     @Override

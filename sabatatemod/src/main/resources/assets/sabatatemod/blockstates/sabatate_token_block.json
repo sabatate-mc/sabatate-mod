@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model":  "sabatatemod:block/sabatate_token_block" }
+  }
+}

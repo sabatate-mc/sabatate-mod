@@ -7,11 +7,10 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.world.World
-import net.oritoitsuki.sabatatemod.SabatateMod
 
 object SabatateManju : Item(
     FabricItemSettings()
-        .group(SabatateMod.ITEM_GROUP)
+        .group(ModItemGroup.ITEM_GROUP)
         .maxCount(64)
         .food(FoodComponent.Builder().hunger(4).saturationModifier(6F).alwaysEdible().snack().build())
 ) {

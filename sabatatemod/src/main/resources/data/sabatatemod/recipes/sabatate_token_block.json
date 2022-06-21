@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "TT"
+    "###",
+    "###",
+    "###"
   ],
   "key": {
-    "T": {
+    "#": {
       "item": "sabatatemod:sabatate_token"
     }
   },
   "result": {
-    "item": "sabatatemod:sabatate_manju",
-    "count": 4
-  },
-  "experience": 1,
-  "cookingtime": 90
+    "item": "sabatatemod:sabatate_token_block",
+    "count": 1
+  }
 }
