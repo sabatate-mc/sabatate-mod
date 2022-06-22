@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier
 object ModItemGroup {
     val ITEM_GROUP: ItemGroup = FabricItemGroupBuilder.build(Identifier("sabatatemod", "item")) {
         ItemStack(
-            ModItems.SABATATE_TOKEN_ITEM
+            ModItems.SABATATE_TOKEN
         )
     }
 }

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "sabatatemod:sabatate_token_block"
+    "sabatatemod:sabatate_token_block",
+    "sabatatemod:sabatate_statue_top",
+    "sabatatemod:sabatate_statue_middle"
   ]
 }

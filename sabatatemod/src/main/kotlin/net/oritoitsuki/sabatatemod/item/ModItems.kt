@@ -7,8 +7,9 @@ import net.minecraft.util.registry.Registry
 import net.oritoitsuki.sabatatemod.SabatateMod
 
 object ModItems {
-    val SABATATE_TOKEN_ITEM = SabatateTokenItem
-    private val SABATATE_MANJU_ITEM = SabatateManju
+    val SABATATE_TOKEN = SabatateTokenItem
+    private val SABATATE_MANJU = SabatateManju
+    private val SABATATE_CHISEL = SabatateChisel
 
     private fun registerItem(name: String, item: Item): Item {
         return Registry.register(Registry.ITEM, Identifier(SabatateMod.MOD_ID, name), item)
@@ -18,10 +19,13 @@ object ModItems {
         SabatateMod.LOGGER.debug("Registering Mod Items for " + SabatateMod.MOD_ID)
 
         // SABATATE_TOKEN_ITEM
-        registerItem("sabatate_token", SABATATE_TOKEN_ITEM)
-        FuelRegistry.INSTANCE.add(SABATATE_TOKEN_ITEM, 1600)
+        registerItem("sabatate_token", SABATATE_TOKEN)
+        FuelRegistry.INSTANCE.add(SABATATE_TOKEN, 1600)
 
         // SABATATE_MANJU_ITEM
-        registerItem("sabatate_manju", SABATATE_MANJU_ITEM)
+        registerItem("sabatate_manju", SABATATE_MANJU)
+
+        // SABATATE_CHISEL
+        registerItem("sabatate_chisel", SABATATE_CHISEL)
     }
 }
