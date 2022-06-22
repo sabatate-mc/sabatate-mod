@@ -12,6 +12,8 @@ import net.oritoitsuki.sabatatemod.item.ModItemGroup
 
 object ModBlocks {
     private val SABATATE_TOKEN_BLOCK = SabatateTokenBlock
+    val SABATATE_STATUE_TOP = SabatateStatueTop
+    val SABATATE_STATUE_MIDDLE = SabatateStatueMiddle
 
     private fun registerBlock(name: String, block: Block): Block {
         registerBlockItem(name, block)
@@ -30,5 +32,9 @@ object ModBlocks {
         // SABATATE_TOKEN_BLOCK
         registerBlock("sabatate_token_block", SABATATE_TOKEN_BLOCK)
         FuelRegistry.INSTANCE.add(SABATATE_TOKEN_BLOCK, 16000)
+
+        // SABATATE_STATUE
+        registerBlock("sabatate_statue_top", SABATATE_STATUE_TOP)
+        registerBlock("sabatate_statue_middle", SABATATE_STATUE_MIDDLE)
     }
 }
