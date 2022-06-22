@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "sabatatemod:block/sabatate_statue_middle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "sabatatemod:block/sabatate_statue_middle"
+    },
+    "facing=south": {
+      "model": "sabatatemod:block/sabatate_statue_middle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "sabatatemod:block/sabatate_statue_middle",
+      "y": 270
+    }
+  }
+}

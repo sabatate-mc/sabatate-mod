@@ -9,12 +9,13 @@ import net.oritoitsuki.sabatatemod.item.ModItems
 object ItemEntityMixinImpl {
     private var sabatateManjuRecipe: Recipe<*>? = null
     private var sabatateBlockRecipe: Recipe<*>? = null
+    private var sabatateChiselRecipe: Recipe<*>? = null
 
     fun onPlayerCollision(playerInventory: PlayerInventory, stack: ItemStack): Boolean {
         val player = playerInventory.player
         val recipeManager = player.world.recipeManager
 
-        if (stack.item == ModItems.SABATATE_TOKEN_ITEM) {
+        if (stack.item == ModItems.SABATATE_TOKEN) {
             if (sabatateManjuRecipe == null) {
                 sabatateManjuRecipe = recipeManager
                     .get(Identifier("sabatatemod", "sabatate_manju")).get()
@@ -25,7 +26,12 @@ object ItemEntityMixinImpl {
                     .get(Identifier("sabatatemod", "sabatate_token_block")).get()
             }
 
-            player.unlockRecipes(arrayListOf(sabatateManjuRecipe, sabatateBlockRecipe))
+            if (sabatateChiselRecipe == null) {
+                sabatateChiselRecipe = recipeManager
+                    .get(Identifier("sabatatemod", "sabatate_chisel")).get()
+            }
+
+            player.unlockRecipes(arrayListOf(sabatateManjuRecipe, sabatateBlockRecipe, sabatateChiselRecipe))
         }
 
         return playerInventory.insertStack(stack)

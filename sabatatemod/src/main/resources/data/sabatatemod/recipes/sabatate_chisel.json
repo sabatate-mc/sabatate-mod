@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# ",
+    " T"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:flint"
+    },
+    "T": {
+      "item": "sabatatemod:sabatate_token"
+    }
+  },
+  "result": {
+    "item": "sabatatemod:sabatate_chisel"
+  }
+}
