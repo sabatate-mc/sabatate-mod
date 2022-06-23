@@ -8,11 +8,14 @@ import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import net.oritoitsuki.sabatatemod.SabatateMod
+import net.oritoitsuki.sabatatemod.block.blocks.SabatateStatueMiddle
+import net.oritoitsuki.sabatatemod.block.blocks.SabatateStatueTop
+import net.oritoitsuki.sabatatemod.block.blocks.SabatateTokenBlock
 import net.oritoitsuki.sabatatemod.item.ModItemGroup
 
 object ModBlocks {
     private val SABATATE_TOKEN_BLOCK = SabatateTokenBlock
-    val SABATATE_STATUE_TOP = SabatateStatueTop
+    val SABATATE_STATUE_TOP = SabatateStatueTop()
     val SABATATE_STATUE_MIDDLE = SabatateStatueMiddle
 
     private fun registerBlock(name: String, block: Block): Block {
