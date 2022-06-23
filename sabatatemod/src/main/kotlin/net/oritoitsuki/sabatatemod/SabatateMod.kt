@@ -1,6 +1,7 @@
 package net.oritoitsuki.sabatatemod
 
 import net.fabricmc.api.ModInitializer
+import net.oritoitsuki.sabatatemod.block.ModBlockEntities
 import net.oritoitsuki.sabatatemod.block.ModBlocks
 import net.oritoitsuki.sabatatemod.item.ModItems
 import org.slf4j.Logger
@@ -14,5 +15,6 @@ object SabatateMod: ModInitializer {
     override fun onInitialize() {
         ModItems.registerModItems()
         ModBlocks.registerModBlocks()
+        ModBlockEntities.registerBlockEntities()
     }
 }
