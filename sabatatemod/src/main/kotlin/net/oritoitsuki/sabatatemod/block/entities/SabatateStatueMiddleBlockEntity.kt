@@ -39,6 +39,4 @@ class SabatateStatueMiddleBlockEntity(pos: BlockPos, state: BlockState)
             }
         }
     }
-
-    private var previousTorch = false
 }

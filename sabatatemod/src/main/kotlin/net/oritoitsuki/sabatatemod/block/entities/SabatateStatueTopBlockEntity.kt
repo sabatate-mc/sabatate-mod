@@ -21,11 +21,12 @@ import net.oritoitsuki.sabatatemod.block.ModBlockEntities
 import net.oritoitsuki.sabatatemod.block.blocks.SabatateStatueTop
 import net.oritoitsuki.sabatatemod.screenhandler.SabatateStatueTopScreenHandler
 import net.oritoitsuki.sabatatemod.item.ModItems
+import net.oritoitsuki.sabatatemod.utils.ImplementedInventory
 import kotlin.random.Random
 
 class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
     : BlockEntity(ModBlockEntities.SABATATE_STATUE_TOP, pos, state),
-        NamedScreenHandlerFactory, Inventory
+        NamedScreenHandlerFactory, ImplementedInventory
 {
     companion object {
         fun tick(world: World, pos: BlockPos, state: BlockState, blockEntity: SabatateStatueTopBlockEntity) {
@@ -66,6 +67,10 @@ class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
     private var timer = 50
     val inventory: DefaultedList<ItemStack> = DefaultedList.ofSize(1, ItemStack.EMPTY)
 
+    override fun getItems(): DefaultedList<ItemStack> {
+        return inventory
+    }
+
     override fun createMenu(syncId: Int, inv: PlayerInventory, player: PlayerEntity): ScreenHandler {
         return SabatateStatueTopScreenHandler(syncId, inv, this)
     }
@@ -83,44 +88,5 @@ class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
         super.writeNbt(nbt)
         println(inventory.isEmpty())
         Inventories.writeNbt(nbt, inventory)
-    }
-
-    override fun size(): Int {
-        return inventory.size
-    }
-
-    override fun isEmpty(): Boolean {
-        return inventory.isEmpty()
-    }
-
-    override fun getStack(slot: Int): ItemStack {
-        return inventory[slot]
-    }
-
-    override fun removeStack(slot: Int, amount: Int): ItemStack {
-        val result = Inventories.splitStack(inventory, slot, amount)
-        if (!result.isEmpty) {
-            markDirty()
-        }
-        return result
-    }
-
-    override fun removeStack(slot: Int): ItemStack {
-        return Inventories.removeStack(inventory, slot)
-    }
-
-    override fun setStack(slot: Int, stack: ItemStack) {
-        inventory[slot] = stack
-        if (stack.count > maxCountPerStack) {
-            stack.count = maxCountPerStack
-        }
-    }
-
-    override fun canPlayerUse(player: PlayerEntity?): Boolean {
-        return true
-    }
-
-    override fun clear() {
-        inventory.clear()
     }
 }
