@@ -1,0 +1,24 @@
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "sabatatemod:sabatate_token"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "sabatatemod:sabatate_token",
+      "sabatatemod:sabatate_manju",
+      "sabatatemod:sabatate_chisel",
+      "sabatatemod:sabatate_token_block"
+    ]
+  }
+}
