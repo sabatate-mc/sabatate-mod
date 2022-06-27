@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "sabatatemod:block/sabatate_statue_stone",
-		"1": "sabatatemod:block/sabatate_statue_white_stone",
-		"2": "sabatatemod:block/sabatate_statue_black_stone",
-		"particle": "sabatatemod:block/sabatate_statue_stone"
+		"0": "sabatatemod:block/sabatate_statue_stone_torch",
+		"1": "sabatatemod:block/sabatate_statue_white_stone_torch",
+		"2": "sabatatemod:block/sabatate_statue_black_stone_torch",
+		"particle": "sabatatemod:block/sabatate_statue_stone_torch"
 	},
 	"elements": [
 		{

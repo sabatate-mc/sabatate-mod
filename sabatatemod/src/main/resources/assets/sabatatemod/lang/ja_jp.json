@@ -14,5 +14,7 @@
 
   "item.sabatatemod.sabatate_chisel": "さばたてノミ",
 
-  "death.attack.sabatate_manju": "%1$s は腹痛で死んでしまった"
+  "death.attack.sabatate_manju": "%1$s は腹痛で死んでしまった",
+
+  "inventory.sabatatemod.sabatate_statue_top": "さばたて石像"
 }

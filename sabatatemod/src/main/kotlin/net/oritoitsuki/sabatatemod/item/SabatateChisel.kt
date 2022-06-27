@@ -8,6 +8,8 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.state.property.Properties
 import net.minecraft.util.ActionResult
 import net.oritoitsuki.sabatatemod.block.ModBlocks
+import net.oritoitsuki.sabatatemod.block.blocks.SabatateStatueMiddle
+import net.oritoitsuki.sabatatemod.block.blocks.SabatateStatueTop
 import kotlin.random.Random
 
 object SabatateChisel : Item(
@@ -29,9 +31,9 @@ object SabatateChisel : Item(
         if (blockTop.block == Blocks.STONE && blockMiddle.block == Blocks.STONE && blockBottom.block == Blocks.STONE) {
             if (!world.isClient) {
                 val direction = context.playerFacing.opposite
-                world.setBlockState(pos, ModBlocks.SABATATE_STATUE_TOP.defaultState.with(Properties.HORIZONTAL_FACING, direction))
-                world.setBlockState(pos.down(1), ModBlocks.SABATATE_STATUE_MIDDLE.defaultState.with(Properties.HORIZONTAL_FACING, direction))
-                world.setBlockState(pos.down(2), ModBlocks.SABATATE_STATUE_MIDDLE.defaultState.with(Properties.HORIZONTAL_FACING, direction))
+                world.setBlockState(pos, ModBlocks.SABATATE_STATUE_TOP.defaultState.with(SabatateStatueTop.FACING, direction).with(SabatateStatueTop.TORCH, false))
+                world.setBlockState(pos.down(1), ModBlocks.SABATATE_STATUE_MIDDLE.defaultState.with(SabatateStatueMiddle.FACING, direction).with(SabatateStatueMiddle.TORCH, false))
+                world.setBlockState(pos.down(2), ModBlocks.SABATATE_STATUE_MIDDLE.defaultState.with(SabatateStatueMiddle.FACING, direction).with(SabatateStatueMiddle.TORCH, false))
                 context.stack.damage(3, player) { it?.sendToolBreakStatus(player?.activeHand)}
             }
             player?.playSound(SoundEvents.BLOCK_GRINDSTONE_USE, 1.5F, Random.nextFloat() * 50F)
