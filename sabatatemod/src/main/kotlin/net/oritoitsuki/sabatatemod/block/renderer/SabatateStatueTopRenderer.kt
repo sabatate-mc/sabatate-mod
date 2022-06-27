@@ -82,7 +82,7 @@ object SabatateStatueTopRenderer: BlockEntityRenderer<SabatateStatueTopBlockEnti
         matrices.multiply(Vec3f.NEGATIVE_Y.getRadialQuaternion(radians(entity.rotateY)))
         matrices.translate(-0.5, 0.0, -0.5)
 
-        if (entity.torch) {
+        if (!entity.torchOff) {
             val direction = normalize(Float4(entity.relativePlayerPos)).xyz
             matrices.push()
             matrices.translate(0.5, 0.5, 0.5)
