@@ -22,17 +22,18 @@ class SabatateStatueMiddleBlockEntity(pos: BlockPos, state: BlockState)
                 }
 
                 if (topBlockEntity == null) {
-                    if (state.get(SabatateStatueMiddle.TORCH)) {
-                        world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH, false), Block.NOTIFY_ALL)
+                    if (state.get(SabatateStatueMiddle.TORCH_OFF)) {
+                        world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH_OFF, true), Block.NOTIFY_ALL)
                     }
                 } else {
-                    if (topBlockEntity.inventory[0].isOf(Items.TORCH)) {
-                        if (!state.get(SabatateStatueMiddle.TORCH)) {
-                            world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH, true), Block.NOTIFY_ALL)
+                    val torchOff = !topBlockEntity.inventory[0].isOf(Items.TORCH)
+                    if (torchOff) {
+                        if (!state.get(SabatateStatueMiddle.TORCH_OFF)) {
+                            world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH_OFF, true), Block.NOTIFY_ALL)
                         }
                     } else {
-                        if (state.get(SabatateStatueMiddle.TORCH)) {
-                            world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH, false), Block.NOTIFY_ALL)
+                        if (state.get(SabatateStatueMiddle.TORCH_OFF)) {
+                            world.setBlockState(pos, state.with(SabatateStatueMiddle.TORCH_OFF, false), Block.NOTIFY_ALL)
                         }
                     }
                 }

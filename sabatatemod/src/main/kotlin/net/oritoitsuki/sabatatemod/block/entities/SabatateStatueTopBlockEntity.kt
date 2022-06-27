@@ -58,14 +58,14 @@ class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
 
             // Torch
             if (!world.isClient) {
-                blockEntity.torch = blockEntity.inventory[0].isOf(Items.TORCH)
-                if (blockEntity.torch) {
-                    if (!state.get(SabatateStatueTop.TORCH)) {
-                        world.setBlockState(pos, state.with(SabatateStatueTop.TORCH, true), Block.NOTIFY_ALL)
+                blockEntity.torchOff = !blockEntity.inventory[0].isOf(Items.TORCH)
+                if (blockEntity.torchOff) {
+                    if (!state.get(SabatateStatueTop.TORCH_OFF)) {
+                        world.setBlockState(pos, state.with(SabatateStatueTop.TORCH_OFF, true), Block.NOTIFY_ALL)
                     }
                 } else {
-                    if (state.get(SabatateStatueTop.TORCH)) {
-                        world.setBlockState(pos, state.with(SabatateStatueTop.TORCH, false), Block.NOTIFY_ALL)
+                    if (state.get(SabatateStatueTop.TORCH_OFF)) {
+                        world.setBlockState(pos, state.with(SabatateStatueTop.TORCH_OFF, false), Block.NOTIFY_ALL)
                     }
                 }
             }
@@ -95,7 +95,7 @@ class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
 
     private var timer = 50
     val inventory: DefaultedList<ItemStack> = DefaultedList.ofSize(1, ItemStack.EMPTY)
-    var torch = false
+    var torchOff = true
     var rotateY = 0F
     var facing = Direction.NORTH
     var relativePlayerPos = Float3()
@@ -115,13 +115,13 @@ class SabatateStatueTopBlockEntity(pos: BlockPos?, state: BlockState?)
     override fun readNbt(nbt: NbtCompound) {
         super.readNbt(nbt)
         Inventories.readNbt(nbt, inventory)
-        torch = nbt.getBoolean("sabatate_statue_top_torch")
+        torchOff = nbt.getBoolean("sabatate_statue_top_torch_off")
     }
 
     override fun writeNbt(nbt: NbtCompound) {
         super.writeNbt(nbt)
         Inventories.writeNbt(nbt, inventory)
-        nbt.putBoolean("sabatate_statue_top_torch", torch)
+        nbt.putBoolean("sabatate_statue_top_torch_off", torchOff)
     }
 
     override fun toUpdatePacket(): Packet<ClientPlayPacketListener>? {

@@ -21,11 +21,11 @@ import net.oritoitsuki.sabatatemod.block.entities.SabatateStatueMiddleBlockEntit
 
 class SabatateStatueMiddle :
     BlockWithEntity(FabricBlockSettings.of(Material.STONE).strength(4F).resistance(15F).requiresTool().luminance {
-    if (it.get(TORCH)) 15 else 0
+    if (it.get(TORCH_OFF)) 0 else 15
 }) {
     companion object {
         val FACING: DirectionProperty = Properties.HORIZONTAL_FACING
-        val TORCH: BooleanProperty = BooleanProperty.of("torch")
+        val TORCH_OFF: BooleanProperty = BooleanProperty.of("torch_off")
 
         private fun makeEastShape(): VoxelShape {
             var shape = VoxelShapes.empty()
@@ -115,7 +115,7 @@ class SabatateStatueMiddle :
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
         builder.add(FACING)
-        builder.add(TORCH)
+        builder.add(TORCH_OFF)
     }
 
     override fun getPlacementState(ctx: ItemPlacementContext?): BlockState? {
