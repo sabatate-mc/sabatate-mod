@@ -1,12 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "sabatatemod:block/sabatate_statue_stone",
-		"2": "sabatatemod:block/sabatate_statue_white_eyes",
-		"3": "sabatatemod:block/sabatate_statue_black_eyes",
-		"4": "sabatatemod:block/sabatate_statue_white_stone",
-		"5": "sabatatemod:block/sabatate_statue_black_stone",
-		"particle": "sabatatemod:block/sabatate_statue_stone"
+		"1": "sabatatemod:block/sabatate_statue_stone_torch",
+		"2": "sabatatemod:block/sabatate_statue_white_eyes_torch",
+		"4": "sabatatemod:block/sabatate_statue_white_stone_torch",
+		"5": "sabatatemod:block/sabatate_statue_black_stone_torch",
+		"particle": "sabatatemod:block/sabatate_statue_stone_torch"
 	},
 	"elements": [
 		{
@@ -371,32 +370,6 @@
 			}
 		},
 		{
-			"name": "left_eye",
-			"from": [4, 7.25, 0.75],
-			"to": [6, 8.75, 2.75],
-			"faces": {
-				"north": {"uv": [0, 0, 2, 2], "texture": "#3"},
-				"east": {"uv": [0, 2, 2, 4], "texture": "#3"},
-				"south": {"uv": [2, 0, 4, 2], "texture": "#3"},
-				"west": {"uv": [2, 2, 4, 4], "texture": "#3"},
-				"up": {"uv": [2, 6, 0, 4], "texture": "#3"},
-				"down": {"uv": [6, 0, 4, 2], "texture": "#3"}
-			}
-		},
-		{
-			"name": "right_eye",
-			"from": [10, 7.25, 0.75],
-			"to": [12, 8.75, 2.75],
-			"faces": {
-				"north": {"uv": [2, 4, 4, 6], "texture": "#3"},
-				"east": {"uv": [4, 2, 6, 4], "texture": "#3"},
-				"south": {"uv": [4, 4, 6, 6], "texture": "#3"},
-				"west": {"uv": [0, 6, 2, 8], "texture": "#3"},
-				"up": {"uv": [8, 2, 6, 0], "texture": "#3"},
-				"down": {"uv": [4, 6, 2, 8], "texture": "#3"}
-			}
-		},
-		{
 			"from": [7, 10, 7],
 			"to": [8, 15, 9],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [1, 1.5, 1]},
@@ -601,37 +574,6 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 225, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [30, 225, 0],
-			"scale": [0.625, 0.625, 0.625]
-		},
-		"fixed": {
-			"scale": [0.5, 0.5, 0.5]
-		}
-	},
 	"groups": [
 		{
 			"name": "body_white",
@@ -658,31 +600,29 @@
 			"color": 0,
 			"children": [26, 27, 28, 29]
 		},
-		30,
-		31,
 		{
 			"name": "left_ear",
 			"origin": [0, 0, 0],
 			"color": 0,
-			"children": [32, 33, 34, 35, 36, 37]
+			"children": [30, 31, 32, 33, 34, 35]
 		},
 		{
 			"name": "right_ear",
 			"origin": [0, 0, 0],
 			"color": 0,
-			"children": [38, 39, 40, 41, 42, 43]
+			"children": [36, 37, 38, 39, 40, 41]
 		},
 		{
 			"name": "left_hand",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"children": [44, 45]
+			"children": [42, 43]
 		},
 		{
 			"name": "right_hand",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"children": [46, 47]
+			"children": [44, 45]
 		}
 	]
 }

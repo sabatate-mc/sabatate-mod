@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=east": {
+    "torch_off=true,facing=east": {
       "model": "sabatatemod:block/sabatate_statue_middle",
       "y": 90
     },
-    "facing=north": {
+    "torch_off=true,facing=north": {
       "model": "sabatatemod:block/sabatate_statue_middle"
     },
-    "facing=south": {
+    "torch_off=true,facing=south": {
       "model": "sabatatemod:block/sabatate_statue_middle",
       "y": 180
     },
-    "facing=west": {
+    "torch_off=true,facing=west": {
       "model": "sabatatemod:block/sabatate_statue_middle",
+      "y": 270
+    },
+    "torch_off=false,facing=east": {
+      "model": "sabatatemod:block/sabatate_statue_middle_torch",
+      "y": 90
+    },
+    "torch_off=false,facing=north": {
+      "model": "sabatatemod:block/sabatate_statue_middle_torch"
+    },
+    "torch_off=false,facing=south": {
+      "model": "sabatatemod:block/sabatate_statue_middle_torch",
+      "y": 180
+    },
+    "torch_off=false,facing=west": {
+      "model": "sabatatemod:block/sabatate_statue_middle_torch",
       "y": 270
     }
   }

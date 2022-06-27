@@ -21,6 +21,12 @@
         "adapter": "kotlin",
         "value": "net.oritoitsuki.sabatatemod.SabatateMod"
       }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "net.oritoitsuki.sabatatemod.SabatateModClient"
+      }
     ]
   },
   "mixins": [

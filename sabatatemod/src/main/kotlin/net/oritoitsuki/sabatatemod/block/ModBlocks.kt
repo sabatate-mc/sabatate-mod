@@ -16,7 +16,7 @@ import net.oritoitsuki.sabatatemod.item.ModItemGroup
 object ModBlocks {
     private val SABATATE_TOKEN_BLOCK = SabatateTokenBlock
     val SABATATE_STATUE_TOP = SabatateStatueTop()
-    val SABATATE_STATUE_MIDDLE = SabatateStatueMiddle
+    val SABATATE_STATUE_MIDDLE = SabatateStatueMiddle()
 
     private fun registerBlock(name: String, block: Block): Block {
         registerBlockItem(name, block)

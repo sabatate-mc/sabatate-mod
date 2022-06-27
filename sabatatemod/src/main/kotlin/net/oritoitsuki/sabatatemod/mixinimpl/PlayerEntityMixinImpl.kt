@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable
 
 object PlayerEntityMixinImpl {
     fun onEatFood(self: PlayerEntity, world: World, stack: ItemStack, callbackInfoReturnable: CallbackInfoReturnable<ItemStack>) {
+        if (self.world.isClient) return
+        if (stack.registryEntry.key.get().value.namespace != "sabatatemod" ||
+            stack.registryEntry.key.get().value.path != "sabatate_manju") return
         val source = EntityDamageSource("sabatate_manju", self)
         self.damage(source, 3.4e38F)
     }

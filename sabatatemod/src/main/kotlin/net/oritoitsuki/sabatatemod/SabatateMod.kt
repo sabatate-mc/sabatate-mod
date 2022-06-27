@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer
 import net.oritoitsuki.sabatatemod.block.ModBlockEntities
 import net.oritoitsuki.sabatatemod.block.ModBlocks
 import net.oritoitsuki.sabatatemod.item.ModItems
+import net.oritoitsuki.sabatatemod.screenhandler.ModScreenHandlers
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -16,5 +17,6 @@ object SabatateMod: ModInitializer {
         ModItems.registerModItems()
         ModBlocks.registerModBlocks()
         ModBlockEntities.registerBlockEntities()
+        ModScreenHandlers.registerScreenHandler()
     }
 }
