@@ -11,6 +11,7 @@ import net.minecraft.state.property.BooleanProperty
 import net.minecraft.state.property.DirectionProperty
 import net.minecraft.state.property.Properties
 import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.Direction
 import net.minecraft.util.shape.VoxelShape
 import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.world.BlockView
@@ -20,11 +21,96 @@ import net.oritoitsuki.sabatatemod.block.entities.SabatateStatueMiddleBlockEntit
 
 class SabatateStatueMiddle :
     BlockWithEntity(FabricBlockSettings.of(Material.STONE).strength(4F).resistance(15F).requiresTool().luminance {
-    if (it.get(SabatateStatueTop.TORCH)) 15 else 0
+    if (it.get(TORCH)) 15 else 0
 }) {
     companion object {
         val FACING: DirectionProperty = Properties.HORIZONTAL_FACING
         val TORCH: BooleanProperty = BooleanProperty.of("torch")
+
+        private fun makeEastShape(): VoxelShape {
+            var shape = VoxelShapes.empty()
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.3125, 0.9375, 1.0, 0.6875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.0625, 0.625, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.875, 0.625, 1.0, 0.9375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.0625, 0.0, 0.375, 0.125, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.125, 0.0, 0.1875, 0.875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.125, 0.8125, 1.0, 0.1875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.8125, 0.8125, 1.0, 0.875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.25, 0.90625, 1.0, 0.3125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.6875, 0.90625, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.25, 0.125, 1.0, 0.375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.625, 0.125, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.09375, 0.75, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.09375, 0.375, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.875, 0.75, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.875, 0.375, 1.0, 0.90625))
+            return shape
+        }
+
+        private fun makeNorthShape(): VoxelShape {
+            var shape = VoxelShapes.empty()
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.3125, 0.0, 0.0625, 0.6875, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.0625, 0.0, 0.375, 0.125, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.375, 0.9375, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.875, 0.625, 1.0, 0.9375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.125, 0.8125, 1.0, 0.875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.125, 0.0, 0.1875, 0.1875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.8125, 0.0, 0.1875, 0.875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.09375, 0.3125, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.6875, 0.0, 0.09375, 0.75, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.875, 0.375, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.875, 0.75, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.25, 0.125, 1.0, 0.375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.625, 0.125, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.25, 0.90625, 1.0, 0.375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.625, 0.90625, 1.0, 0.75))
+            return shape
+        }
+
+        private fun makeSouthShape(): VoxelShape {
+            var shape = VoxelShapes.empty()
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.3125, 0.0, 0.875, 0.6875, 1.0, 0.9375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.375, 0.9375, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.0625, 0.0, 0.375, 0.125, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.0625, 0.625, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.125, 0.8125, 1.0, 0.875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.8125, 0.0, 0.1875, 0.875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.125, 0.0, 0.1875, 0.1875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.6875, 0.0, 0.875, 0.75, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.875, 0.3125, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.09375, 0.75, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.09375, 0.375, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.625, 0.90625, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.25, 0.90625, 1.0, 0.375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.625, 0.125, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.25, 0.125, 1.0, 0.375))
+            return shape
+        }
+
+        private fun makeWestShape(): VoxelShape {
+            var shape = VoxelShapes.empty()
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.0625, 0.0, 0.3125, 0.125, 1.0, 0.6875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.875, 0.625, 1.0, 0.9375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.375, 0.0, 0.0625, 0.625, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.375, 0.9375, 1.0, 0.625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.125, 0.0, 0.1875, 0.875, 1.0, 0.8125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.8125, 0.8125, 1.0, 0.875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.1875, 0.0, 0.125, 0.8125, 1.0, 0.1875))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.6875, 0.125, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.09375, 0.0, 0.25, 0.125, 1.0, 0.3125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.625, 0.90625, 1.0, 0.75))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.875, 0.0, 0.25, 0.90625, 1.0, 0.375))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.875, 0.375, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.875, 0.75, 1.0, 0.90625))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.25, 0.0, 0.09375, 0.375, 1.0, 0.125))
+            shape = VoxelShapes.union(shape, VoxelShapes.cuboid(0.625, 0.0, 0.09375, 0.75, 1.0, 0.125))
+            return shape
+        }
+
+        val SHAPE_EAST = makeEastShape()
+        val SHAPE_NORTH = makeNorthShape()
+        val SHAPE_SOUTH = makeSouthShape()
+        val SHAPE_WEST = makeWestShape()
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
@@ -33,11 +119,22 @@ class SabatateStatueMiddle :
     }
 
     override fun getPlacementState(ctx: ItemPlacementContext?): BlockState? {
-        return this.defaultState.with(SabatateStatueTop.FACING, ctx?.playerFacing?.opposite)
+        return this.defaultState.with(FACING, ctx?.playerFacing?.opposite)
     }
 
-    override fun getCullingShape(state: BlockState?, world: BlockView?, pos: BlockPos?): VoxelShape {
-        return VoxelShapes.empty()
+    override fun getOutlineShape(
+        state: BlockState,
+        world: BlockView,
+        pos: BlockPos?,
+        context: ShapeContext
+    ): VoxelShape {
+        return when(state.get(FACING)) {
+            Direction.EAST -> SHAPE_EAST
+            Direction.NORTH -> SHAPE_NORTH
+            Direction.SOUTH -> SHAPE_SOUTH
+            Direction.WEST -> SHAPE_WEST
+            else -> SHAPE_NORTH
+        }
     }
 
     override fun getRenderType(state: BlockState?): BlockRenderType {

@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "sabatate_statue_top",
 	"textures": {
 		"1": "sabatatemod:block/sabatate_statue_stone",
 		"2": "sabatatemod:block/sabatate_statue_white_eyes",

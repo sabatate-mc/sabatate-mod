@@ -11,7 +11,9 @@ val modVersion: String by project
 version = modVersion
 val mavenGroup: String by project
 group = mavenGroup
-repositories {}
+repositories {
+    mavenCentral()
+}
 dependencies {
     val minecraftVersion: String by project
     minecraft("com.mojang", "minecraft", minecraftVersion)
@@ -23,6 +25,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api", "fabric-api", fabricVersion)
     val fabricKotlinVersion: String by project
     modImplementation("net.fabricmc", "fabric-language-kotlin", fabricKotlinVersion)
+    implementation("dev.romainguy:kotlin-math:1.5.0")
 }
 tasks {
     val javaVersion = JavaVersion.VERSION_17

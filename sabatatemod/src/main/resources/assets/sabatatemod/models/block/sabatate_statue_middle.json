@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "sabatate_statue_middle",
 	"textures": {
 		"0": "sabatatemod:block/sabatate_statue_stone",
 		"1": "sabatatemod:block/sabatate_statue_white_stone",
